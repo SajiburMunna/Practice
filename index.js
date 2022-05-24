@@ -177,3 +177,54 @@ function multi(a,b,sum){
 console.log(multi(10,10,function (c,d){
   return c+d;
 }))
+
+
+console.log("--------------------------------------- Real Senario of map Function ----------------------- ")
+
+const arr=[1,4,5,6,6]
+function myMap(arr,cb){
+  var newArr=[];
+  for(var i =0; i<arr.length;i++){
+    var temp =cb(arr[i],i,arr)
+    newArr.push (temp)
+  }
+  return newArr
+}
+
+var qb= myMap(arr,function(value){
+  return value*value*value;
+});
+
+console.log('map result',qb)
+
+console.log("--------------------------------------- Real Senario of filter Function ----------------------- ")
+
+
+function myFilter(arr,cb){
+  var newFilterArr=[];
+  for(var i =0; i<arr.length;i++){
+    if(cb(arr[i],i,arr)){
+       newFilterArr.push(arr[i])
+    }
+  }
+  return newFilterArr
+}
+
+
+console.log(myFilter(arr,function(value){
+  return value % 2 === 0
+}))
+
+console.log("-------------------------------Reducer-----------------------------")
+
+const redArr=[{name:'sojib',total:5},{name:'sojib1',total:6},{name:'sojib2',total:7}]
+ 
+// var redSum =redArr.reduce(function(prv,curr){
+//   return prv + curr.total;
+// });
+
+// console.log('Reducer Sum:',redSum)
+
+ 
+var result = redArr.reduce(function (acc, obj) { return acc + obj.total; }, 0);
+console.log(result);  // 7
