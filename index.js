@@ -228,3 +228,67 @@ const redArr=[{name:'sojib',total:5},{name:'sojib1',total:6},{name:'sojib2',tota
  
 var result = redArr.reduce(function (acc, obj) { return acc + obj.total; }, 0);
 console.log(result);  // 7
+
+
+  console.log("------------------------Recursive Function ------------------------")
+
+function sayHi(n){
+  if(n===0){
+    return
+  }
+  console.log('Hi!,I am calling You.');
+  sayHi(n-1)
+}
+sayHi(5)
+
+function itemSum(n){
+ if(n===0)
+ { return 0}
+console.log(n)
+  return n + itemSum(n-1);
+  
+}
+
+console.log(itemSum(5));
+
+
+
+
+ function goodSum(n){
+   return n+1
+ }
+
+function redSum(m){
+  return m+goodSum(m)
+}
+console.log(redSum(5));
+
+
+//abstraction ---implementation hide,(hiding unneccessry details)
+//encapsulation --- propertices and method binding 
+//inheritance --- inheritance
+//polymorphism ---different look
+
+
+
+
+console.log('-----------------------------OOP-------------------------------------')
+
+
+const rect={
+  width:10,
+  height:20,
+  calculateArea:function(){
+    return this.width*this.height
+  },
+  calculateRange:function(){
+    return 2*(this.width + this.height)
+  }
+}
+
+var area =rect.calculateArea();
+var range=rect.calculateRange();
+
+console.log(area);
+console.log(range);
+
