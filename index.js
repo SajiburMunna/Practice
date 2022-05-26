@@ -292,3 +292,118 @@ var range=rect.calculateRange();
 console.log(area);
 console.log(range);
 
+
+console.log('-------------------------OOP Practice-----------------------------')
+const recta={
+  width:100,
+  height:50,
+  draw:function(){
+    console.log("I am rectangle");
+    this.print()
+    console.log(this)
+    
+  },
+  print:function(){
+    console.log('My width is ' +this.width)
+    console.log('My width is ' +this.height)
+    
+  }
+  
+}
+
+ recta.width = 150;
+
+recta.draw();
+
+
+function myFunc(){
+ recta.print()
+}
+
+myFunc();
+
+var another={
+  width:50,
+  height:55,
+  printPropertices:recta.print
+}
+
+console.log(another.printPropertices);
+another.printPropertices()
+
+
+
+console.log('---------------------Factory Pattern In Javasrcipt---------------------------')
+
+
+
+var createRect =function(width,height){
+  return {
+
+    width:width,
+  height:height,
+  draw:function(){
+    console.log("I am rectangle");
+    this.print()
+    console.log(this)
+    
+  },
+  print:function(){
+    console.log('My width is ' +this.width)
+    console.log('My width is ' +this.height)
+    
+  }
+    
+  }
+}
+
+var rect1=createRect(10,0);
+rect1.draw();
+
+
+var rect2=createRect(1000,00000);
+rect2.draw();
+
+
+
+console.log('---------------------Constructor Pattern In Javasrcipt---------------------------')
+
+var Rect =function(width,height){
+  
+   this.width = width,
+  this.height = height,
+  this.draw = function(){
+    console.log("I am rectangle");
+    this.print()
+    console.log(this)
+    
+  },
+  this.print = function(){
+    console.log('My width is ' +this.width)
+    console.log('My width is ' +this.height)
+    
+  }
+  
+}
+
+
+// var Rect1=new Rect(100,20);
+// Rect1.draw()
+
+
+console.log('------------------------new Keyword---------------------------------')
+
+function myNew(constructor){
+  var obj={}
+  Object.setPrototypeOf(obj,constructor)
+  var argsArray=Array.prototype.slice.apply(arguments)
+  constructor.apply(obj,argsArray.slice(1))
+  return obj
+}
+
+
+
+var rect4=myNew(Rect,45,30);
+
+rect4.draw()
+
