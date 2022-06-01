@@ -600,48 +600,347 @@
 //   rect5.draw();
 
 
-console.log('------call,apply,bind------')
+// console.log('------call,apply,bind------')
 
 
-function myFunc(c,d){
+// function myFunc(c,d){
 
-  console.log(this)
-  console.log(this.a + this.b + c + d)
-}
+//   console.log(this.a + this.b + c + d)
+// }
 
  
 
-//call and apply almost same
+// //call and apply almost same
 
-myFunc.call({a:50,b:50},40,50)
-myFunc.apply({a:50,b:50},[40,50])
-myFunc()
+// myFunc.call({a:50,b:50},40,50)  
+// myFunc.apply({a:50,b:50},[40,50])
+
  
-  var bindCall=myFunc.bind({a:50,b:50} )
-bindCall(100,1000)
+//   var bindCall=myFunc.bind({a:50,b:50} )
+// bindCall(100,1000)
 
 
-console.log('---Pass by Value vs Pass by reference / call by value vs call by reference---')
+// console.log('---Pass by Value vs Pass by reference / call by value vs call by reference---')
 
 
-var n=10
-function change (n){
-  n=n +100;
-  console.log(n)
+// var n=10
+// function change (n){
+//   n=n +100;
+//   console.log(n)
+// }
+// change(n);
+// console.log(n);
+
+// var obj={
+//   a:10,
+//   b:20
+// }
+
+// function changedMe(){
+//   obj.a=obj.a+100
+//   obj.b=obj.b+100
+//   console.log(obj)
+// }
+
+// changedMe(obj)
+// console.log(obj);
+
+
+
+// console.log('-------abstraction in js ------------')
+
+
+// var Rectangle=function(width,height){
+//   var position={
+//     x:50,
+//     y:-100
+//   }
+  
+//   this.width=width
+//   this.height=height
+//     var show =function(){
+//       console.log('I am a rectangle')
+//       console.log('My Width' + this.width);
+//       console.log('My Height' + this.height)
+//     }.bind(this)
+//     this.print=function(){
+//       console.log('I am a RectAngle')
+//       console.log('My width'+ this.width);
+//       console.log('My height' + this.height)
+//       show()
+//       console.log('Position x = '+position.x +  ' Y = ' + position.y)
+//     }
+//   this.getPosition = function(){
+//     return position;
+//   }
+  
+// }
+// var rect3=new Rectangle(100,100)
+// rect3.print()
+
+// console.log(rect3.getPosition())
+
+
+// console.log('---- getter and setter ----')
+
+
+
+//  console.log('---ES6----')
+
+
+//   let add =(a,b)=>{
+//     return a+b
+    
+//   }
+
+// const sum  = add(30,40)
+// console.log(sum)
+
+
+// function testMe(){
+//   console.log(this)
+// }
+
+// testMe()
+
+// var obj={
+//   name:'sojib hossen ',
+//   print2:function(){
+//   console.log(this)
+//   }
+// }
+
+// obj.print2()
+
+// var obj2={
+//   name:'munna',
+//   print: function(){
+     
+//     setTimeout(()=>{
+//       console.log('hello',+ this.name);
+//     },1000)
+//   }
+// }
+// obj2.print()
+
+// console.log('-----default parameter-----')
+
+// function greet(msg,name='hello'){
+//   console.log(`${msg}!,${name}`)
+// }
+
+// greet('sojib','hello3')
+
+
+// console.log('------custom object iterator----')
+
+
+// let obj ={
+//   start:1,
+//   end:10,
+//  [Symbol.iterator]:function(){
+//    let currentValue =this.start
+//    const self=this
+//    return {
+//      next(){
+//        return{
+//          done:currentValue>self.end,
+//          value:currentValue++
+//        }
+//      }
+//    }
+   
+//  }
+// }
+
+// for (let v of obj){
+//   console.log(v);
+// }
+
+
+// console.log('----rest operator----')
+// function sum(){
+//   let sum =0;
+//   for (let i=0 ; i<arguments.length;i++){
+//     sum+=arguments[i]
+//   }
+//   return sum;
+// }
+
+
+// console.log(sum(1,3,4,5,5))
+
+// function sum2(...rest){
+//    console.log(rest );
+//  }
+
+// const a =[1,3,4,6,8,8];
+// console.log(...a);
+
+// const obj2={
+//   a:10,
+//   b:20
+// }
+
+// console.log(obj2)
+// const obj5={...obj2}
+// obj5.a=100
+// console.log(obj5)
+
+//Es6 oop
+
+// class Rectangle {
+//   constructor (width,height){
+//     this.width=width
+//     this.height=height
+//     this.another =function(){
+      
+//     }
+//   }
+//   test=function(){
+//     console.log('Hello world')
+//   }
+//   name='sojib hossen'
+//   draw(){
+//     console.log('Drawing..........')
+//   }
+// }
+
+// let rect1 =new Rectangle(50,100);
+// console.log(rect1);
+
+
+// class Person{
+//   constructor(name,email){
+//     this.name=name,
+//       this.email=email
+//   }
+//   print(){
+//     console.log(this.name,this.email)
+//   }
+//   static create (str){
+//     let person=JSON.parse(str)
+//     return new Person(person.name,person.email)
+//   }
+// }
+
+// let str='{"name":"Hm nayem","email":"hassan.m.nayem"}'
+
+// let p1=Person.create(str)
+// console.log(p1)
+
+// function Shape(){
+//   this.draw =function(){
+//     console.log(this)
+//   }
+// }
+
+// let s1 =new Shape()
+// let anotherDraw
+// 'use strict'
+// function Shape(){
+//   this.draw=function(){
+//     console.log(this)
+//   }
+// }
+// let s1=new Shape()
+// let anotherDraw = s1.draw
+// anotherDraw();
+
+
+// 'use strict'
+
+// class Person{
+//   constructor(name,email){
+//     this.name=name,
+//       this.email=email
+//   }
+//   print(){
+//     console.log(this)
+//   }
+// }
+// let p1=new Person();
+// console.log( p1.print
+
+
+// console.log('---------Private data using symbol-----------')
+// const _radius = Symbol()
+// class Circle{
+//   constructor(radius){
+//     // this._radius = radius
+//     this[_radius]=radius
+//   }
+//   draw(){
+//     console.log('Drawing.........')
+//   }
+// }
+// let c1 =new Circle (2,'Cred')
+// console.log(c1.draw())
+
+// console.log('--------Private Data Using Weak Map-------- ')
+
+// class Shape {
+//   constructor (color){
+//     this.color = color
+//   }
+//   draw(){
+//     console.log('Drawing.....')
+//   }
+// }
+
+// class Rectangle extends Shape {
+//  constructor(color,width,height){
+//    super(color)
+//    this.width=width
+//    this.height=height
+//  } 
+//   calculate(){
+//     return this.width + this.height
+//   }
+
+//   draw(){
+//     console.log('Override Methods ... Drawing ...')
+//   }
+// }
+
+// let r=new Rectangle('Green',50,100)
+// console.log(r);
+
+// console.log(r.draw());
+
+
+
+// console.log('----------method override--------')
+
+// console.log
+
+
+// console.log('----Error------')
+
+// let m =10
+// if (m>5){
+//   throw new Error ('M is Geater Than 5')
+// }
+
+
+console.log('-------try catch---------')
+
+
+try {
+  console.log('I am not a error')
+  console.log('hello world')
+  throw new Error( ' I am your error')
+}catch {
+  console.log('this your custom error' )
 }
-change(n);
-console.log(n);
-
-var obj={
-  a:10,
-  b:20
+finally{
+  console.log('I am finally done !')
 }
 
-function changedMe(){
-  obj.a=obj.a+100
-  obj.b=obj.b+100
-  console.log(obj)
-}
 
-changedMe(obj)
-console.log(obj);
+
+
+
+
+
+ 
